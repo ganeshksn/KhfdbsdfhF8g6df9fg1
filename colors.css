@@ -1,0 +1,18 @@
+/* SVE Logo Color Palette (extracted)
+   - Deep Green: #0d2c1a
+   - Gold: #e6c15a
+   - Light Gold: #f7e7b3
+   - White: #ffffff
+   - Accent Green: #3a6b3a
+*/
+:root {
+    --sve-green: #0d2c1a;
+    --sve-gold: #e6c15a;
+    --sve-gold-light: #f7e7b3;
+    --sve-white: #ffffff;
+    --sve-accent-green: #3a6b3a;
+    --header-radius: 28px;
+    --header-shadow: 0 8px 32px rgba(13,44,26,0.18);
+    --glass-bg: rgba(13,44,26,0.65);
+    --glass-blur: blur(16px);
+}
