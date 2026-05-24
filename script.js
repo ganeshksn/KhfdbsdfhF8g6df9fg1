@@ -132,7 +132,7 @@ const CONTACT_FORM_CONFIG = {
     // Admin setting: use "whatsapp" or "email".
     deliveryMethod: 'whatsapp',
     whatsappNumber: '919703768569',
-    emailAddress: 'info@srivisweswaraexports.com',
+    emailAddress: 'srivisweswaraexports@gmail.com',
     emailSubject: 'New inquiry from Sri Visweswara Exports website'
 };
 
