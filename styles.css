@@ -1338,6 +1338,233 @@ p {
     transform: translateY(-2px);
 }
 
+.home-spices {
+    margin-top: 76px;
+}
+
+.home-spices-header {
+    margin-bottom: 34px;
+}
+
+.spice-tiles {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.spice-tile {
+    --spice-accent: var(--green-700);
+    overflow: hidden;
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    border: 1px solid rgba(16, 19, 22, 0.11);
+    border-radius: 8px;
+    background: #fffaf0;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.spice-tile:hover {
+    transform: translateY(-6px);
+    border-color: var(--spice-accent);
+    box-shadow: var(--shadow-md);
+}
+
+.spice-tile h3 {
+    min-height: 64px;
+    display: grid;
+    place-items: center;
+    padding: 0 12px;
+    color: var(--white);
+    background: linear-gradient(180deg, var(--spice-accent), var(--spice-accent));
+    font-size: clamp(1rem, 1.55vw, 1.34rem);
+    font-weight: 800;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.spice-tile-image {
+    width: 100%;
+    aspect-ratio: 1.06;
+    object-fit: cover;
+    transition: transform var(--transition-slow), filter var(--transition);
+}
+
+.spice-tile:hover .spice-tile-image {
+    transform: scale(1.04);
+    filter: saturate(1.08) contrast(1.03);
+}
+
+.spice-tile-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 20px 18px 18px;
+    background:
+        linear-gradient(180deg, rgba(255, 250, 240, 0.92), rgba(251, 250, 246, 0.98)),
+        var(--paper);
+}
+
+.spice-tile-body p {
+    min-height: 82px;
+    color: var(--ink);
+    font-size: 0.98rem;
+    font-weight: 500;
+    line-height: 1.52;
+    text-align: center;
+}
+
+.spice-benefits {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 18px;
+}
+
+.spice-benefits span {
+    min-width: 0;
+    display: grid;
+    justify-items: center;
+    gap: 7px;
+    color: var(--ink);
+    font-size: 0.68rem;
+    font-weight: 900;
+    line-height: 1.12;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.spice-benefits .icon-svg {
+    width: 46px;
+    height: 46px;
+    padding: 10px;
+    border: 1.5px solid var(--spice-accent);
+    border-radius: 50%;
+    color: var(--spice-accent);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.spice-quote-link {
+    min-height: 44px;
+    margin-top: 18px;
+    padding: 0 16px;
+    border: 1px solid color-mix(in srgb, var(--spice-accent) 24%, transparent);
+    border-radius: 999px;
+    color: var(--spice-accent);
+    background: rgba(255, 255, 255, 0.72);
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.spice-quote-link:hover {
+    color: var(--white);
+    background: var(--spice-accent);
+    transform: translateY(-2px);
+}
+
+.spice-quote-link .icon-svg {
+    width: 18px;
+    height: 18px;
+}
+
+.spice-tile-chilli {
+    --spice-accent: #b91816;
+}
+
+.spice-tile-turmeric {
+    --spice-accent: #d99a00;
+}
+
+.spice-tile-coriander {
+    --spice-accent: #4f7516;
+}
+
+.spice-tile-cumin {
+    --spice-accent: #7b3f0b;
+}
+
+.spice-footer-notes {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 18px 28px;
+    margin: 28px auto 0;
+    padding: 20px;
+    border: 1px solid rgba(215, 170, 69, 0.34);
+    border-radius: 8px;
+    color: var(--white);
+    background:
+        linear-gradient(135deg, rgba(13, 44, 26, 0.98), rgba(31, 107, 58, 0.92)),
+        var(--green-900);
+    box-shadow: var(--shadow-sm);
+}
+
+.spice-note-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.spice-note-list span {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 46px;
+    padding: 0 14px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.spice-note-list .icon-svg {
+    width: 24px;
+    height: 24px;
+    color: var(--gold-soft);
+}
+
+.usfda-highlight {
+    display: grid;
+    grid-template-columns: auto minmax(0, 180px);
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px 10px 10px;
+    border-radius: 8px;
+    color: var(--green-900);
+    background: var(--white);
+    box-shadow: inset 0 0 0 1px rgba(215, 170, 69, 0.42);
+}
+
+.usfda-mark {
+    display: grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    color: var(--green-900);
+    background: #fff8e3;
+    font-size: 0.92rem;
+    font-weight: 900;
+    line-height: 1.05;
+    text-align: center;
+}
+
+.usfda-copy {
+    color: var(--green-900);
+    font-size: 0.9rem;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
 .packaging-info {
     margin-top: 36px;
 }
@@ -2196,6 +2423,10 @@ p {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .spice-tiles {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .footer-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -2397,6 +2628,40 @@ p {
     .features-grid,
     .form-row {
         grid-template-columns: 1fr;
+    }
+
+    .home-spices {
+        margin-top: 54px;
+    }
+
+    .spice-tiles {
+        grid-template-columns: 1fr;
+    }
+
+    .spice-tile h3 {
+        min-height: 58px;
+    }
+
+    .spice-tile-image {
+        aspect-ratio: 1.32;
+    }
+
+    .spice-tile-body p {
+        min-height: 0;
+    }
+
+    .spice-footer-notes {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .spice-note-list {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .usfda-highlight {
+        grid-template-columns: auto 1fr;
     }
 
     .packaging-card,
