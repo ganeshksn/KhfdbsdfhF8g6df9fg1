@@ -95,7 +95,7 @@
 
 **Export Map:**
 - Stylized world map
-- Highlighted countries (Kuwait, Qatar, USA)
+- Highlighted countries (India)
 - Pulse animation on markers
 
 **Contact Form:**
