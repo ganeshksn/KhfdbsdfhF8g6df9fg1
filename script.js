@@ -20,16 +20,29 @@ function initNavbar() {
     const heroSection = document.querySelector('.hero');
     
     if (!navbar || !heroSection) return;
-    
-    window.addEventListener('scroll', function() {
-        const scrollY = window.scrollY;
-        
-        if (scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+
+    let ticking = false;
+    let isScrolled = false;
+
+    function updateNavbar() {
+        const shouldBeScrolled = window.scrollY > 50;
+
+        if (shouldBeScrolled !== isScrolled) {
+            navbar.classList.toggle('scrolled', shouldBeScrolled);
+            isScrolled = shouldBeScrolled;
         }
-    });
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(updateNavbar);
+            ticking = true;
+        }
+    }, { passive: true });
+
+    updateNavbar();
 }
 
 /* ========================================
@@ -72,24 +85,34 @@ function initMobileMenu() {
    Smooth Scroll Navigation
    ======================================== */
 function initSmoothScroll() {
-    const links = document.querySelectorAll('a[href^="#"]');
+    const isHomepage = document.body.classList.contains('homepage');
+    const links = document.querySelectorAll(isHomepage ? 'a[href*="#"]' : 'a[href^="#"]');
     
     links.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             
             if (href === '#') return;
-            
-            e.preventDefault();
-            
-            const target = document.querySelector(href);
+
+            const url = new URL(this.href, window.location.href);
+            const normalizePath = path => path.replace(/index\.html$/, '');
+            const isSamePage = normalizePath(url.pathname)
+                === normalizePath(window.location.pathname);
+            const target = isSamePage && url.hash
+                ? document.querySelector(url.hash)
+                : null;
             
             if (target) {
+                e.preventDefault();
+
                 const navbarHeight = document.getElementById('navbar').offsetHeight;
-                const targetPosition = target.offsetTop - navbarHeight - 20;
+                const targetPosition = target.getBoundingClientRect().top
+                    + window.scrollY
+                    - navbarHeight
+                    - 20;
                 
                 window.scrollTo({
-                    top: targetPosition,
+                    top: Math.max(0, targetPosition),
                     behavior: 'smooth'
                 });
             }
@@ -104,6 +127,14 @@ function initScrollReveal() {
     const revealElements = document.querySelectorAll(
         '.reveal, .about-content, .about-visual, .product-card, .export-card, .feature-card, .contact-info, .contact-form-wrapper, .mission-card, .value-card, .cert-card, .stat-card, .packaging-card, .world-map'
     );
+
+    if (document.body.classList.contains('homepage')) {
+        revealElements.forEach(el => {
+            el.classList.remove('reveal');
+            el.classList.add('active');
+        });
+        return;
+    }
     
     revealElements.forEach(el => {
         el.classList.add('reveal');
